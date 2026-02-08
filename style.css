@@ -144,7 +144,7 @@ body{
 
 /* Cards: remove boxy borders, add soft “glass” */
 .card{
-  border: 1px solid var(--stroke);
+  border: 1px solid rgba(255,255,255,.18);
   background: var(--panel);
   backdrop-filter: blur(14px);
   border-radius: var(--radius);
