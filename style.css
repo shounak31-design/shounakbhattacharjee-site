@@ -23,3 +23,32 @@ a { color: inherit; }
 .card p { margin: 0; opacity: 0.9; }
 
 .footer { padding-top: 26px; opacity: 0.6; }
+/* --- About page + transitions --- */
+.lede { max-width: 70ch; }
+
+.list { margin: 0; padding-left: 18px; }
+.list li { margin: 8px 0; }
+
+.meta { opacity: 0.9; }
+
+/* Page transition (fade + slight slide) */
+.page {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.page.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page.page-exit {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .page { transition: none; }
+}
