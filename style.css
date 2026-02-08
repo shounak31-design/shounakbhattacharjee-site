@@ -52,3 +52,134 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .page { transition: none; }
 }
+/* =========================
+   Theme: Minimal gradient + soft glass panels
+   Paste at bottom of style.css
+   ========================= */
+
+:root{
+  --max: 900px;
+  --text: #0b0f1a;
+  --muted: rgba(11,15,26,.72);
+  --panel: rgba(255,255,255,.62);
+  --panel-strong: rgba(255,255,255,.72);
+  --stroke: rgba(255,255,255,.40);
+  --shadow: 0 10px 30px rgba(10, 20, 40, .12);
+  --radius: 18px;
+}
+
+/* Background character (no image needed) */
+body{
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(124, 92, 255, .22), transparent 60%),
+    radial-gradient(900px 600px at 80% 20%, rgba(0, 194, 255, .18), transparent 60%),
+    radial-gradient(800px 500px at 40% 80%, rgba(255, 196, 0, .12), transparent 55%),
+    linear-gradient(180deg, #f7f8ff 0%, #f3f6ff 35%, #f6fbff 100%);
+}
+
+/* Make the layout feel less rigid */
+.wrap{
+  max-width: var(--max);
+  padding: 30px 18px 70px;
+}
+
+/* Nav: cleaner, less boxy */
+.nav{
+  padding: 14px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 16px rgba(10,20,40,.08);
+}
+
+.brand{
+  letter-spacing: .2px;
+}
+
+.links a{
+  opacity: .8;
+}
+.links a:hover{
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Hero: more editorial */
+.hero{
+  padding: 58px 6px 22px;
+}
+.hero h1{
+  font-size: clamp(30px, 4vw, 44px);
+  letter-spacing: -0.02em;
+}
+.hero p{
+  color: var(--muted);
+}
+
+/* Buttons: softer, premium */
+.btn{
+  border: 1px solid rgba(10,20,40,.12);
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(10,20,40,.10);
+  padding: 10px 16px;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  transition: transform 120ms ease;
+}
+.btn.ghost{
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Section titles */
+.section h2{
+  opacity: .55;
+  letter-spacing: .14em;
+}
+
+/* Cards: remove boxy borders, add soft “glass” */
+.card{
+  border: 1px solid var(--stroke);
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Headings inside cards */
+.card h3{
+  letter-spacing: -0.01em;
+}
+
+/* Make the overall page feel “non boxy” */
+.section{
+  padding: 18px 0;
+}
+
+/* Subtle hover on cards */
+.card:hover{
+  background: var(--panel-strong);
+  transform: translateY(-1px);
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+/* Footer */
+.footer{
+  opacity: .55;
+}
+
+/* Keep your page transition compatible */
+.page{
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .card:hover { transform: none; transition: none; }
+}
